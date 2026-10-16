@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Public Poll — राजस्थान की जनता की राय</title>
+<style>
+:root{--navy:#14213d;--blue:#2457c5;--orange:#ff9f1c;--bg:#f4f7fb;--muted:#65718a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:system-ui,-apple-system,"Noto Sans Devanagari",Arial,sans-serif;color:#172033}
+header{background:linear-gradient(120deg,#14213d,#2457c5);color:white;padding:20px 16px 26px}
+.wrap{max-width:980px;margin:auto}.top{display:flex;align-items:center;justify-content:space-between;gap:10px}.brand{font-size:25px;font-weight:850;letter-spacing:.2px}.brand span{color:#ffbf69}.badge{font-size:12px;background:#ffffff22;border:1px solid #ffffff55;border-radius:99px;padding:7px 10px}
+h1{font-size:clamp(25px,5vw,40px);line-height:1.15;margin:27px 0 10px}.sub{color:#e3eaff;max-width:650px;line-height:1.6;margin:0}
+main{padding:18px 14px 50px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:4px 0 18px}.toolbar input,.toolbar select{background:white;border:1px solid #dbe2ee;border-radius:12px;padding:12px;font:inherit;min-width:150px;flex:1}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:15px}.card{background:white;border:1px solid #e2e8f2;border-radius:18px;padding:18px;box-shadow:0 6px 22px #14213d0b}.tag{display:inline-block;font-size:12px;font-weight:750;color:#2457c5;background:#edf3ff;border-radius:99px;padding:5px 9px}.card h2{font-size:19px;line-height:1.4;margin:12px 0 6px}.meta{font-size:12px;color:var(--muted);margin-bottom:14px}.option{display:block;width:100%;border:1px solid #d9e2f0;border-radius:11px;padding:11px 12px;margin:8px 0;background:white;text-align:left;font:inherit;cursor:pointer}.option:hover{border-color:#2457c5;background:#f4f7ff}.option:disabled{cursor:default;color:#172033}.bar{height:8px;background:#edf1f7;border-radius:99px;overflow:hidden;margin-top:6px}.bar i{display:block;height:100%;background:linear-gradient(90deg,#2457c5,#6c8ef5);border-radius:99px}.small{font-size:12px;color:var(--muted)}button.primary{border:0;border-radius:11px;background:var(--blue);color:white;font-weight:750;padding:11px 15px;cursor:pointer}.buttonrow{display:flex;gap:9px;flex-wrap:wrap;margin-top:13px}.empty{padding:30px;text-align:center;color:var(--muted)}.ad{margin:20px 0;background:#fff;border:1px dashed #aab6ca;border-radius:15px;padding:18px;text-align:center;color:#65718a}.ad strong{display:block;color:#34415b;margin-bottom:5px}.sectionhead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:25px 0 12px}.sectionhead h2{margin:0;font-size:21px}footer{padding:25px 15px;background:#14213d;color:#dce5f6;text-align:center;font-size:13px;line-height:1.7}.note{font-size:12px;color:var(--muted);line-height:1.6}.modal{display:none;position:fixed;inset:0;background:#0b1539a8;z-index:4;padding:15px;overflow:auto}.modalbox{max-width:520px;background:white;border-radius:18px;padding:20px;margin:5vh auto}.modalbox input,.modalbox textarea,.modalbox select{width:100%;padding:11px;border:1px solid #dbe2ee;border-radius:10px;margin:7px 0 12px;font:inherit}.modalbox label{font-size:13px;font-weight:700}.close{float:right;border:0;background:#edf1f7;border-radius:8px;padding:7px 10px}
+</style></head>
+<body>
+<header><div class="wrap">
+<div class="top"><div class="brand">Public <span>Poll</span></div><div class="badge">राजस्थान • जनमत मंच</div></div>
+<h1>आपकी राय, आपकी आवाज़।</h1><p class="sub">राजस्थान के मुद्दों, गाँव के विकास और जनहित के सवालों पर अपनी राय दें। वोट करें, परिणाम देखें और चर्चा को आगे बढ़ाएँ।</p>
+</div></header>
+<main class="wrap">
+<div class="ad"><strong>विज्ञापन के लिए स्थान</strong>यहाँ बाद में स्वीकृत विज्ञापन नेटवर्क या स्थानीय व्यवसाय का विज्ञापन लगाया जा सकता है।<div class="small">यह डेमो प्लेसहोल्डर है—अभी कोई विज्ञापन या कमाई चालू नहीं है।</div></div>
+<div class="toolbar"><input id="search" placeholder="पोल खोजें…"><select id="filter"><option value="all">सभी श्रेणियाँ</option><option>ग्राम विकास</option><option>राजस्थान</option><option>जनमत</option></select><button class="primary" onclick="openAdmin()">＋ नया पोल (एडमिन)</button></div>
+<div class="sectionhead"><h2>लोकप्रिय पोल</h2><span class="small" id="count"></span></div>
+<div class="grid" id="polls"></div>
+<div class="ad"><strong>अपने व्यवसाय का प्रचार करें</strong>स्थानीय दुकानदार/व्यवसाय विज्ञापन के लिए संपर्क कर सकते हैं।<br><span class="small">इस डेमो में संपर्क विवरण जोड़ना बाकी है।</span></div>
+<div class="sectionhead"><h2>महत्वपूर्ण जानकारी</h2></div>
+<p class="note">यह जनमत सर्वेक्षण का डेमो है, सरकारी या आधिकारिक चुनावी मतदान प्रणाली नहीं। डेमो में वोट इसी ब्राउज़र पर सहेजे जाते हैं; इससे असली ऑनलाइन वोटिंग की सुरक्षा, सर्वर-सिंक या एक व्यक्ति–एक वोट की गारंटी नहीं मिलती। सार्वजनिक उपयोग से पहले सर्वर-बैकएंड, गोपनीयता नीति, नियम, मॉडरेशन और सुरक्षा लागू करें।</p>
+</main>
+<footer><strong>Public Poll</strong><br>जनता की राय • राजस्थान<br>© <span id="year"></span> Public Poll · Demo</footer>
+
+<div class="modal" id="adminModal"><div class="modalbox"><button class="close" onclick="closeAdmin()">बंद करें ✕</button><h2>एडमिन: नया पोल</h2><p class="note">यह केवल डेमो है। असली वेबसाइट में पासवर्ड-सुरक्षित सर्वर एडमिन जरूरी है।</p>
+<label>एडमिन डेमो पासकोड</label><input id="pass" type="password" placeholder="डेमो पासकोड">
+<div id="form" style="display:none"><label>पोल का सवाल</label><input id="question" placeholder="आपके गाँव में सबसे जरूरी काम?"><label>श्रेणी</label><select id="category"><option>ग्राम विकास</option><option>राजस्थान</option><option>जनमत</option></select><label>विकल्प (हर लाइन में एक)</label><textarea id="options" rows="4" placeholder="सड़क&#10;पानी&#10;बिजली"></textarea><button class="primary" onclick="addPoll()">पोल बनाएं</button></div>
+</div></div>
+<script>
+const starter=[
+{id:'p1',q:'आपके गाँव में सबसे जरूरी विकास कार्य कौन-सा है?',cat:'ग्राम विकास',opts:['सड़क','पेयजल','बिजली','स्वास्थ्य सुविधा'],votes:[24,38,17,21]},
+{id:'p2',q:'राजस्थान में ग्रामीण क्षेत्रों के लिए किस मुद्दे पर सबसे ज्यादा ध्यान देना चाहिए?',cat:'राजस्थान',opts:['रोजगार','शिक्षा','पानी','किसानों की सुविधा'],votes:[32,25,28,15]},
+{id:'p3',q:'ग्राम पंचायत की जानकारी लोगों तक पहुँचाने का सबसे अच्छा तरीका क्या है?',cat:'जनमत',opts:['WhatsApp समूह','ग्राम सभा','सूचना बोर्ड','वेबसाइट'],votes:[34,29,14,23]}
+];
+let polls=JSON.parse(localStorage.getItem('pp_polls')||'null')||starter;
+let voted=JSON.parse(localStorage.getItem('pp_voted')||'{}');
+function save(){localStorage.setItem('pp_polls',JSON.stringify(polls));localStorage.setItem('pp_voted',JSON.stringify(voted))}
+function render(){let q=document.getElementById('search').value.toLowerCase(),cat=document.getElementById('filter').value;let list=polls.filter(p=>(cat==='all'||p.cat===cat)&&p.q.toLowerCase().includes(q));document.getElementById('count').textContent=list.length+' पोल';document.getElementById('polls').innerHTML=list.map(p=>{let total=p.votes.reduce((a,b)=>a+b,0),done=!!voted[p.id];return `<article class="card"><span class="tag">${esc(p.cat)}</span><h2>${esc(p.q)}</h2><div class="meta">${total} कुल वोट · ${done?'आप वोट कर चुके हैं':'अपनी राय चुनें'}</div>${p.opts.map((o,i)=>done?`<div><div style="display:flex;justify-content:space-between;gap:10px;font-size:14px"><span>${esc(o)}</span><b>${total?Math.round(p.votes[i]/total*100):0}%</b></div><div class="bar"><i style="width:${total?p.votes[i]/total*100:0}%"></i></div></div>`:`<button class="option" onclick="vote('${p.id}',${i})">${esc(o)}</button>`).join('')}<div class="buttonrow"><button class="primary" onclick="results('${p.id}')">${done?'परिणाम देखें':'वोट के बाद परिणाम'}</button><button class="option" style="width:auto;margin:0" onclick="sharePoll('${p.id}')">शेयर करें</button></div></article>`}).join('')||'<div class="empty">कोई पोल नहीं मिला।</div>'}
+function vote(id,i){if(voted[id])return alert('इस ब्राउज़र में पहले ही वोट दर्ज है।');let p=polls.find(x=>x.id===id);if(!p)return;p.votes[i]++;voted[id]=true;save();render()}
+function results(id){if(!voted[id])return alert('डेमो में परिणाम देखने के लिए पहले वोट करें।');render()}
+function sharePoll(id){let p=polls.find(x=>x.id===id);if(navigator.share)navigator.share({title:'Public Poll',text:p.q,url:location.href});else alert('इस पोल को शेयर करने के लिए ब्राउज़र का Share विकल्प इस्तेमाल करें।')}
+function openAdmin(){document.getElementById('adminModal').style.display='block';document.getElementById('form').style.display='none';document.getElementById('pass').value=''}
+function closeAdmin(){document.getElementById('adminModal').style.display='none'}
+document.getElementById('pass').addEventListener('input',e=>{document.getElementById('form').style.display=e.target.value==='PP-DEMO-2026'?'block':'none'})
+function addPoll(){let q=document.getElementById('question').value.trim(),opts=document.getElementById('options').value.split('\n').map(x=>x.trim()).filter(Boolean),cat=document.getElementById('category').value;if(!q||opts.length<2)return alert('सवाल और कम से कम 2 विकल्प लिखें।');polls.unshift({id:'p'+Date.now(),q,cat,opts,votes:opts.map(()=>0)});save();render();closeAdmin()}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+document.getElementById('search').addEventListener('input',render);document.getElementById('filter').addEventListener('change',render);document.getElementById('year').textContent=new Date().getFullYear();render();
+</script></body></html>
